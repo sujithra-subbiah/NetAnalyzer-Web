@@ -1,0 +1,94 @@
+body {
+    background: linear-gradient(135deg, #0f0f1f, #1a1a2e);
+    color: #ffffff !important;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+}
+
+/* Force all text to white */
+h1, h2, h3, h4, h5, h6, p, span, li, a {
+    color: #ffffff !important;
+}
+
+/* Navbar */
+.glass-nav {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    color: #00ffff !important;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #00ffff !important;
+    text-shadow: 0 0 8px #00ffff;
+}
+
+/* Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,255,255,0.2);
+    padding: 20px;
+    transition: 0.4s ease;
+    color: #ffffff !important;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px #00ffff;
+}
+
+/* Glow Button */
+.btn-glow {
+    background: linear-gradient(45deg, #8a2be2, #00ffff);
+    border: none;
+    color: #ffffff !important;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn-glow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00ffff;
+}
+
+/* Loader */
+.loader {
+    border: 5px solid #222;
+    border-top: 5px solid #00ffff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .btn-glow {
+        width: 100%;
+    }
+
+    .glass-card {
+        margin-bottom: 20px;
+    }
+}

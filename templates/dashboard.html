@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark glass-nav px-4">
+  <a class="navbar-brand fw-bold" href="/">📡 NetAnalyzer</a>
+
+  <div class="collapse navbar-collapse justify-content-end">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item"><a class="nav-link active" href="/dashboard">Dashboard</a></li>
+      <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container text-center mt-5">
+
+    <h1 class="mb-4">📊 Network Dashboard</h1>
+
+    <a href="/capture" onclick="showLoader()" class="btn btn-glow mb-3">
+        🚀 Capture Packets
+    </a>
+
+    <div id="loading" class="loader"></div>
+
+    {% if total %}
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-4 col-md-6 col-12">
+            <div class="glass-card">
+                <h4>Total Packets</h4>
+                <h2>{{ total }}</h2>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+            <div class="glass-card">
+                <h4>Average Packet Size</h4>
+                <h2>{{ average }} bytes</h2>
+            </div>
+        </div>
+    </div>
+
+    {% if graph %}
+    <div class="mt-4">
+        <img src="{{ url_for('static', filename='graph.png') }}" class="img-fluid rounded">
+    </div>
+
+    <a href="{{ url_for('static', filename='packets.csv') }}" class="btn btn-glow mt-3">
+        ⬇ Download CSV
+    </a>
+    {% endif %}
+    {% endif %}
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
